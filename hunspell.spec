@@ -1,11 +1,11 @@
 Summary:	Hunspell - a spell checker and morphological analyzer library
 Name:		hunspell
-Version:	1.3.2
-Release:	4
+Version:	1.3.3
+Release:	1
 License:	MPL v1.1 or GPL v2+ or LGPL v2.1+
 Group:		Libraries
 Source0:	http://downloads.sourceforge.net/hunspell/%{name}-%{version}.tar.gz
-# Source0-md5:	3121aaf3e13e5d88dfff13fb4a5f1ab8
+# Source0-md5:	4967da60b23413604c9e563beacc63b4
 URL:		http://hunspell.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -47,7 +47,6 @@ Includes and definitions for developing with hunspell.
 %{__aclocal} -I m4
 %{__autoconf}
 %{__automake}
-CPPFLAGS="-I/usr/include/ncurses"
 %configure \
 	--disable-static	\
 	--with-readline		\
@@ -78,9 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*.1*
 %{_mandir}/man3/*.3*
-%{_mandir}/man4/*.4*
-%lang(hu) %{_mandir}/hu/man1/*.1*
-%lang(hu) %{_mandir}/hu/man4/*.4*
+%{_mandir}/man5/*.5*
 
 %files libs
 %defattr(644,root,root,755)
@@ -91,7 +88,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libhunspell-*.*.so
 %{_libdir}/libhunspell-*.*.la
-%{_libdir}/libparsers.a
 %{_includedir}/%{name}
 %{_pkgconfigdir}/hunspell.pc
 
